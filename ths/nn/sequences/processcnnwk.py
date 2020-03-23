@@ -55,7 +55,7 @@ class ProcessTweetsCNN:
         All  = []
 
         #with open(self.labeled_tweets_filename, "r", encoding="ISO-8859-1") as f:
-        with open(self.labeled_tweets_filename, "r") as f:
+        with open(self.labeled_tweets_filename, "r", encoding="utf-8") as f:
             i = 0
             csv_file = csv.reader(f, delimiter=',')
             ones_count = 0
