@@ -163,7 +163,6 @@ class TweetSentiment3LSTM:
         self.model.save_weights(h5_filename)
         return
 
-
 class TweetSentiment2LSTM2Dense(TweetSentiment2LSTM):
     def __init__(self, max_sentence_len, embedding_builder):
         super().__init__(max_sentence_len, embedding_builder)
@@ -282,7 +281,6 @@ class TweetSentimentGRUSM(TweetSentiment2LSTM):
         # create the model
         self.model = Model(input=sentence_input, output=X)
 
-
 class TweetSentimentCNN:
     def __init__(self, max_sentence_len, embedding_builder):
         self.max_sentence_len = max_sentence_len
@@ -387,7 +385,6 @@ class TweetSentimentCNN:
             json_file.write(json_model)
         self.model.save_weights(h5_filename)
         return
-
 
 class TweetSentiment2DCNN:
     def __init__(self, max_sentence_len, embedding_builder):
@@ -505,7 +502,6 @@ class TweetSentiment2DCNN:
         self.model.save_weights(h5_filename)
         return
 
-
 class  TweetSentiment2DCNNv2(TweetSentiment2DCNN):
     def __init__(self, max_sentence_len, embedding_builder):
         super().__init__(max_sentence_len, embedding_builder)
@@ -614,7 +610,6 @@ class  TweetSentiment2DCNNv3(TweetSentiment2DCNN):
         X = Dense(3, activation= "softmax")(X)
         # create the model
         self.model = Model(input=sentence_input, output=X)
-
 
 class TweetSentiment2DCNNv4(TweetSentiment2DCNN):
     def __init__(self, max_sentence_len, embedding_builder):
@@ -870,7 +865,6 @@ class TweetSentiment2LSTM2Attention(TweetSentiment2LSTM):
         return self.model.fit(X, Y, epochs=epochs, batch_size=batch_size, shuffle=shuffle, callbacks=callbacks,
                        validation_split=validation_split, class_weight=class_weight)
 
-
 class TweetSentiment2LSTM2Attentionv2(TweetSentiment2LSTM):
     def __init__(self, max_sentence_len, embedding_builder):
         super().__init__(max_sentence_len, embedding_builder)
@@ -927,8 +921,6 @@ class TweetSentiment2LSTM2Attentionv2(TweetSentiment2LSTM):
         return self.model.fit(X, Y, epochs=epochs, batch_size=batch_size, shuffle=shuffle, callbacks=callbacks,
                        validation_split=validation_split, class_weight=class_weight, verbose=2)
 
-
-
 class TweetSentimentSeq2Seq(TweetSentiment2LSTM):
     def __init__(self, max_sentence_len, embedding_builder):
         super().__init__(max_sentence_len, embedding_builder)
@@ -979,8 +971,6 @@ class TweetSentimentSeq2Seq(TweetSentiment2LSTM):
         return self.model.fit(X, Y, epochs=epochs, batch_size=batch_size, shuffle=shuffle, callbacks=callbacks,
                               validation_split=validation_split, class_weight=class_weight, verbose=2)
 
-
-
 class TweetSentimentSeq2SeqGRU(TweetSentiment2LSTM):
     def __init__(self, max_sentence_len, embedding_builder):
         super().__init__(max_sentence_len, embedding_builder)
@@ -1028,7 +1018,6 @@ class TweetSentimentSeq2SeqGRU(TweetSentiment2LSTM):
             class_weight=None):
         return self.model.fit(X, Y, epochs=epochs, batch_size=batch_size, shuffle=shuffle, callbacks=callbacks,
                               validation_split=validation_split, class_weight=class_weight, verbose=2)
-
 
 class TweetSentimentSeq2SeqAttention(TweetSentiment2LSTM):
     def __init__(self, max_sentence_len, embedding_builder):
@@ -1085,7 +1074,6 @@ class TweetSentimentSeq2SeqAttention(TweetSentiment2LSTM):
             class_weight=None):
         return self.model.fit(X, Y, epochs=epochs, batch_size=batch_size, shuffle=shuffle, callbacks=callbacks,
                               validation_split=validation_split, class_weight=class_weight, verbose=2)
-
 
 class TweetSentimentEncoder(TweetSentiment2LSTM):
     def __init__(self, max_sentence_len, embedding_builder):

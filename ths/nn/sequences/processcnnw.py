@@ -1,5 +1,5 @@
 from ths.nn.sequences.tweets import TweetSentiment2DCNNv2_1, TweetSentiment2LSTM2Dense, TweetSentiment2LSTM2Dense3Layer, TweetSentiment2LSTM2Dense4Layer, TweetSentiment2LSTM2Attention, TweetSentiment2LSTM2Attentionv2
-from ths.nn.sequences.cnn import TweetSentimentInceptionOneChan
+from ths.nn.sequences.cnn import TweetSentimentInceptionOneChan, KerasInceptionCNN
 from ths.nn.sequences.tweets import TweetSentimentCNN
 
 from ths.utils.files import GloveEmbedding, Word2VecEmbedding
@@ -51,7 +51,7 @@ class ProcessTweetsCNN:
         All  = []
 
         #with open(self.labeled_tweets_filename, "r", encoding="ISO-8859-1") as f:
-        with open(self.labeled_tweets_filename, "r") as f:
+        with open(self.labeled_tweets_filename, "r", encoding="utf-8") as f:
             i = 0
             csv_file = csv.reader(f, delimiter=',')
             ones_count = 0
@@ -75,13 +75,6 @@ class ProcessTweetsCNN:
                 ones_count += 1
             else:
                 two_count += 1
-            # if (label == 2):
-            #     label = 0
-            # if (label == 1) and (ones_count <= 4611):
-            #     X_all.append(tweet)
-            #     Y_all.append(label)
-            #     ones_count +=1
-            # elif (label == 0):
             X_all.append(tweet)
             Y_all.append(label)
 
@@ -153,8 +146,9 @@ class ProcessTweetsCNN:
         #NN = TweetSentiment2LSTM2Dense(trim_size, G)
         #NN =TweetSentiment2LSTM2Dense3Layer(trim_size, G)
         #NN =TweetSentiment2LSTM2Dense4Layer(trim_size, G)
-        NN = TweetSentimentInceptionOneChan(trim_size, G)
-        #NN = TweetSentimentCNN(trim_size, G)
+        NN = KerasInceptionCNN(trim_size, G)
+        NQ = TweetSentimentCNN(trim_size, G)
+        NQ.build()
         #print("Build GRU")
         #NN = TweetSentimentGRUSM(max_len, G)
 
