@@ -56,8 +56,8 @@ class KerasInceptionCNN:
         #input = keras.layers.Concatenate(axis=-1)([sentence_input, sentence_input, sentence_input])
         keras.backend.is_keras_tensor(sentence_input)
         print("Este es el modelo que esta utilizando")
-        self.model = InceptionV3(include_top=False, weights=None, input_tensor=input,
-                                 input_shape=(75,100,3), pooling='max', classes=3)
+        self.model = InceptionV3(include_top=True, weights=None, input_tensor=input,
+                                 input_shape=(75,100,1), pooling='max', classes=3)
         #self.model = Model(input=[sentence_input, reverse_sentence_input], output=X)
 
     def pretrained_embedding_layer(self):
@@ -186,39 +186,42 @@ class ProcessTweetsInception:
         # print("hello", embedding[9876])
 
 
-        S = SentenceToEmbedding(word_to_idx, idx_to_word, embedding)
+        # S = SentenceToEmbedding(word_to_idx, idx_to_word, embedding)
+        #
+        # edata = []
+        # padding_vect = [0] * 100
+        #
+        # # // exit(0)
+        # n = 0
+        # for i in X_train_sentences:
+        #     # print("Buenoooooooo", n)
+        #     m = S.map_sentence(i)
+        #     # print("n:", n)
+        #     if m.shape[0] < 75:
+        #         m = np.vstack((m, np.zeros((75-m.shape[0],100))))
+        #         # cuando codear "eficientemente" tiene que ser utilizado
+        #         # while m.shape[0] < 75:
+        #             # m = np.vstack((m,np.array(padding_vect)))
+        #     else:
+        #         if m.shape[0] == 100:
+        #             m = np.array([m])
+        #             m = np.vstack((m, np.zeros((75-m.shape[0],100))))
+        #     p = np.array([m])
+        #     # print("ghjkl", str(p.shape), "  ghjkluhnm ", n, i)
+        #     if n > 0:
+        #         edata = np.vstack((edata, p))
+        #     else:
+        #         edata = p
+        #     # print("----------------------------------->" + str(edata.shape))
+        #     n = n+1
 
-        edata = []
-        padding_vect = [0] * 100
+        # np.save("array", edata)
+        hjkl = np.load("data/array.npy")
 
-        # // exit(0)
-        n = 0
-        for i in X_train_sentences:
-            # print("Buenoooooooo", n)
-            m = S.map_sentence(i)
-            # print("n:", n)
-            if m.shape[0] < 75:
-                m = np.vstack((m, np.zeros((75-m.shape[0],100))))
-                # cuando codear "eficientemente" tiene que ser utilizado
-                # while m.shape[0] < 75:
-                    # m = np.vstack((m,np.array(padding_vect)))
-            else:
-                if m.shape[0] == 100:
-                    m = np.array([m])
-                    m = np.vstack((m, np.zeros((75-m.shape[0],100))))
-            p = np.array([m])
-            # print("ghjkl", str(p.shape), "  ghjkluhnm ", n, i)
-            if n > 0:
-                edata = np.vstack((edata, p))
-            else:
-                edata = p
-            # print("----------------------------------->" + str(edata.shape))
-            n = n+1
+        print("----------------------------------->" + str(hjkl.shape))
 
-        np.save("array", edata)
-
-        exit(0)
-        X_train = edata
+        # exit(0)
+        X_train = hjkl
         Y_train = np.array(Y_train)
         ones_count = np.count_nonzero(Y_train)
         zeros_count = len(Y_train) - ones_count
@@ -263,11 +266,10 @@ class ProcessTweetsInception:
         NN.compile(optimizer='adam', loss="categorical_crossentropy", metrics=['accuracy', precision, recall, f1, fprate])
         print("model compiled")
         print("Begin training")
-        callback = TensorBoard(log_dir="/tmp/logs")
         #class_weight = {0: 0.67, 1: 0.33}
         #class_weight = None
 
-        history = NN.fit(X_train, Y_train, epochs=epochs, batch_size=32, callbacks=[callback], class_weight=class_weight_dictionary)
+        history = NN.fit(X_train, Y_train, epochs=epochs, batch_size=32, class_weight=class_weight_dictionary)
         print("Model trained")
         print("Predicting")
         print("len(X_test): ", X_test)
