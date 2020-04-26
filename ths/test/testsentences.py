@@ -10,11 +10,22 @@ def main():
     s = s.lower()
     print("Sentence: ", s)
     S = SentenceToIndices(word_to_idx)
+
+    e = "I love New York and music locon"
+    e = e.lower()
+    print("Sentence: ", e)
+    E = SentenceToIndices(word_to_idx)
+    matrices = []
+
     sentence = S.map_sentence(s)
     print("Sentence to indices: ", sentence)
     print("Padded: ", PadSentences(10).pad(sentence))
     SE = SentenceToEmbedding(word_to_idx, idx_to_word, embedding)
     matrix = SE.map_sentence(s, max_len=10)
+    matrixe = SE.map_sentence(e, max_len=10)
+    matrices.append(matrix)
+    matrices.append(matrixe)
+
     print("Matrix: ", matrix)
     print("Matrix.shape: ", matrix.shape)
     print("Embedding i: ", embedding[word_to_idx["i"]])

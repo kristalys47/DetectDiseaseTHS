@@ -1,6 +1,16 @@
-from ths.nn.sequences.tweets import TweetSentiment2DCNNv2_1, TweetSentiment2LSTM2Dense, TweetSentiment2LSTM2Dense3Layer, TweetSentiment2LSTM2Dense4Layer, TweetSentiment2LSTM2Attention, TweetSentiment2LSTM2Attentionv2
-from ths.nn.sequences.cnn import TweetSentimentInceptionOneChan, KerasInceptionCNN
-from ths.nn.sequences.tweets import TweetSentimentCNN
+import numpy as np
+
+np.random.seed(7)
+from ths.utils.sentences import SentenceToEmbedding
+
+from keras.models import Model
+from keras.layers import Dense, Input, Dropout, LSTM, Activation, Bidirectional, BatchNormalization, GRU, Conv1D, \
+    Conv2D, MaxPooling2D, Flatten, Reshape, GlobalAveragePooling1D, GlobalMaxPooling1D, AveragePooling1D, AveragePooling2D, \
+    Concatenate, ZeroPadding2D, Multiply, Permute
+from keras.applications.inception_v3 import InceptionV3
+
+from keras.layers.embeddings import Embedding
+import keras as keras
 
 from ths.utils.files import GloveEmbedding, Word2VecEmbedding
 from ths.utils.sentences import SentenceToIndices, SentenceToEmbedding, PadSentences, TrimSentences
@@ -16,12 +26,88 @@ from ths.utils.errors import ErrorAnalysis
 from ths.nn.metrics.f1score import calculate_cm_metrics
 import sys
 
+from keras.preprocessing.image import load_img
+from keras.preprocessing.image import img_to_array, array_to_img, load_img, save_img
+
 import numpy as np
 import csv
 import math
+from matplotlib import pyplot as plt
+from sys import exit
 
 
-class ProcessTweetsCNN:
+
+
+class KerasInceptionCNN:
+    def __init__(self, max_sentence_len, embedding_builder):
+        self.max_sentence_len = max_sentence_len
+        print("This is how it is", max_sentence_len)
+        self.embedding_builder = embedding_builder
+        self.model = None
+
+    def build(self, first_dropout=0.0, padding='same', filters=4, kernel_size=(1, 1), strides=(1, 1),
+              activation='relu', dense_units=64, second_dropout=0.0):
+
+        # Input Layer 1 - tweet in right order
+        sentence_input = Input(batch_shape=(10000, 75, 100), shape=(75, 100), name="INPUT_1")
+
+        in1 = Reshape((75,100,1))(sentence_input)
+        input = keras.layers.Concatenate(axis=-1)([in1,in1,in1])
+        #input = keras.layers.Concatenate(axis=-1)([sentence_input, sentence_input, sentence_input])
+        keras.backend.is_keras_tensor(sentence_input)
+        print("Este es el modelo que esta utilizando")
+        self.model = InceptionV3(include_top=False, weights=None, input_tensor=input,
+                                 input_shape=(75,100,3), pooling='max', classes=3)
+        #self.model = Model(input=[sentence_input, reverse_sentence_input], output=X)
+
+    def pretrained_embedding_layer(self):
+        # create Keras embedding layer
+        word_to_idx, idx_to_word, word_embeddings = self.embedding_builder.read_embedding()
+        #vocabulary_len = len(word_to_idx) + 1
+        vocabulary_len = len(word_to_idx)
+        emb_dimension = self.embedding_builder.get_dimensions()
+        # get the matrix for the sentences
+        embedding_matrix = word_embeddings
+        #embedding_matrix = np.vstack([word_embeddings, np.zeros((vocabulary_len,))])
+
+        # embedding layer
+        embedding_layer = Embedding(input_dim=vocabulary_len, output_dim=emb_dimension, trainable=False, name="EMBEDDING")
+        embedding_layer.build((None,))
+        embedding_layer.set_weights([embedding_matrix])
+        return embedding_layer
+
+    def summary(self):
+        self.model.summary()
+
+    def compile(self, loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy']):
+        self.model.compile(loss=loss, optimizer=optimizer, metrics=metrics)
+
+    def fit(self, X, Y, epochs = 50, batch_size = 32, shuffle=True, callbacks=None, validation_split=0.0, class_weight=None):
+        return self.model.fit(X, Y, epochs=epochs, batch_size=batch_size, shuffle=shuffle, callbacks=callbacks,
+                       validation_split=validation_split, class_weight=class_weight, verbose=2)
+
+    def evaluate(self, X_test, Y_test):
+        return self.model.evaluate(X_test, Y_test)
+
+    def predict(self, X):
+        return self.model.predict(X)
+
+    def get_sentiment(self, prediction):
+        return np.argmax(prediction)
+
+    #def sentiment_string(self, sentiment):
+    #    return self.sentiment_map[sentiment]
+
+    def save_model(self, json_filename, h5_filename):
+        json_model = self.model.to_json()
+        with open(json_filename, "w") as json_file:
+            json_file.write(json_model)
+        self.model.save_weights(h5_filename)
+        return
+
+
+
+class ProcessTweetsInception:
     def __init__(self, labeled_tweets_filename, embedding_filename):
         self.labeled_tweets_filename = labeled_tweets_filename
         self.embedding_filename = embedding_filename
@@ -102,8 +188,6 @@ class ProcessTweetsCNN:
 
         S = SentenceToEmbedding(word_to_idx, idx_to_word, embedding)
 
-        #X_train_matrixes = S.map_sentence(c)
-
         edata = []
         padding_vect = [0] * 100
         #
@@ -113,14 +197,29 @@ class ProcessTweetsCNN:
         #
         # mskdn = [e, s]
 
+        # print("----------------------------------->" + str(np.array(X_train_sentences).shape))
+        # print("----------------------------------->" + str(np.array(X_train_sentences[0]).shape))
+        # print("----------------------------------->" + str(np.array(X_train_sentences[0][0]).shape))
+        #
+        # print("----------------------------------->" + str(np.array(X_train_sentences).shape))
+        # print("----------------------------------->" + X_train_sentences[0])
+        # print("----------------------------------->" + X_train_sentences[0][0])
+
+        # // exit(0)
+        n = 0
         for i in X_train_sentences:
+            # print("Buenoooooooo", n)
             m = S.map_sentence(i)
             if len(m) < 75:
                 while len(m) < 75:
-                    m = np.vstack((m, padding_vect))
-            edata.append(m)
-        print("hello", edata[1])
-        print("len", len(edata[1]), " ", len(edata[1][1])," ")
+                    m = np.append(m, np.array(padding_vect))
+            np.append(edata,m)
+
+        # print("hello", edata[1])
+        # print("len", len(edata[1]), " ", len(edata[1][1])," ")
+
+
+        print("----------------------------------->" + str(edata.shape))
 
         # padding_len = self.max_len - len(sentence)
         # if (padding_len > 0):
@@ -132,24 +231,7 @@ class ProcessTweetsCNN:
 
 
 
-
-
-
-        # print("Train data mappend to indices")
-        # if max_len % 2 !=0:
-        #     max_len = max_len + 1
-        #
-        # P = PadSentences(max_len)
-        # X_train_pad = P.pad_list(X_train_indices)
-        # print("Train data padded")
-        # # TRIM
-        # trim_size = max_len
-        # #trim_size = 33
-        # Trim = TrimSentences(trim_size)
-        # X_train_pad = Trim.trim_list(X_train_pad)
-        # print("X[0], ", X_train_pad[0])
-        # #convert to numPY arrays
-        X_train = np.array(edata)
+        X_train = edata
         Y_train = np.array(Y_train)
         ones_count = np.count_nonzero(Y_train)
         zeros_count = len(Y_train) - ones_count
@@ -159,19 +241,23 @@ class ProcessTweetsCNN:
         Y_train_old = Y_train
         Y_train = to_categorical(Y_train, num_classes=3)
 
+        # plt.imshow(X_train[0])
+        # plt.show()
+
+
         #Divide the data
         X_test_text = X_all[limit:]
         X_test = X_train[limit:]
         Y_test = Y_train[limit:]
         X_train = X_train[0: limit]
         Y_train = Y_train[0: limit]
-        print("Entiendo que esto es la data que utiliza para hacer le training ", X_train)
-        # print ("data divided on value: ", limit)
-        # print("lengths X_train, Y_train: ", len(X_train), len(Y_train))
-        # print("lengths X_test, Y_test: ", len(X_test), len(Y_test))
+        print("----------------------------------->" + str(X_train.shape))
 
+        print("Entiendo que esto es la data que utiliza para hacer le training ", len(X_train), len(X_train[0]), len(X_train[0][0]), " Y_train ", len(Y_train))
         print("Train data convert to numpy arrays")
         NN = KerasInceptionCNN(0, G)
+
+
 
         print("model created")
         kernel_regularizer = l2(0.001)
@@ -193,6 +279,7 @@ class ProcessTweetsCNN:
         callback = TensorBoard(log_dir="/tmp/logs")
         #class_weight = {0: 0.67, 1: 0.33}
         #class_weight = None
+
         history = NN.fit(X_train, Y_train, epochs=epochs, batch_size=32, callbacks=[callback], class_weight=class_weight_dictionary)
         print("Model trained")
         print("Predicting")
@@ -244,4 +331,5 @@ class ProcessTweetsCNN:
             print("Ploting")
             self.plot(history)
         print("Done!")
+
 
