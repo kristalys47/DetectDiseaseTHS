@@ -182,55 +182,42 @@ class ProcessTweetsInception:
 
         G = GloveEmbedding(self.embedding_filename, dimensions=100)
         word_to_idx, idx_to_word, embedding = G.read_embedding()
-        print("hello", embedding[47])
-        print("hello", embedding[9876])
+        # print("hello", embedding[47])
+        # print("hello", embedding[9876])
 
 
         S = SentenceToEmbedding(word_to_idx, idx_to_word, embedding)
 
         edata = []
         padding_vect = [0] * 100
-        #
-        # s = "I love New York and music locon"
-        #
-        # e = "I love New York and music locon"
-        #
-        # mskdn = [e, s]
-
-        # print("----------------------------------->" + str(np.array(X_train_sentences).shape))
-        # print("----------------------------------->" + str(np.array(X_train_sentences[0]).shape))
-        # print("----------------------------------->" + str(np.array(X_train_sentences[0][0]).shape))
-        #
-        # print("----------------------------------->" + str(np.array(X_train_sentences).shape))
-        # print("----------------------------------->" + X_train_sentences[0])
-        # print("----------------------------------->" + X_train_sentences[0][0])
 
         # // exit(0)
         n = 0
         for i in X_train_sentences:
             # print("Buenoooooooo", n)
             m = S.map_sentence(i)
-            if len(m) < 75:
-                while len(m) < 75:
-                    m = np.append(m, np.array(padding_vect))
-            np.append(edata,m)
+            # print("n:", n)
+            if m.shape[0] < 75:
+                m = np.vstack((m, np.zeros((75-m.shape[0],100))))
+                # cuando codear "eficientemente" tiene que ser utilizado
+                # while m.shape[0] < 75:
+                    # m = np.vstack((m,np.array(padding_vect)))
+            else:
+                if m.shape[0] == 100:
+                    m = np.array([m])
+                    m = np.vstack((m, np.zeros((75-m.shape[0],100))))
+            p = np.array([m])
+            # print("ghjkl", str(p.shape), "  ghjkluhnm ", n, i)
+            if n > 0:
+                edata = np.vstack((edata, p))
+            else:
+                edata = p
+            # print("----------------------------------->" + str(edata.shape))
+            n = n+1
 
-        # print("hello", edata[1])
-        # print("len", len(edata[1]), " ", len(edata[1][1])," ")
+        np.save("array", edata)
 
-
-        print("----------------------------------->" + str(edata.shape))
-
-        # padding_len = self.max_len - len(sentence)
-        # if (padding_len > 0):
-        #     padding = []
-        #     r = range(0, padding_len)
-        #     for _ in r:
-        #         padding.append(0)
-        # return sentence + padding
-
-
-
+        exit(0)
         X_train = edata
         Y_train = np.array(Y_train)
         ones_count = np.count_nonzero(Y_train)

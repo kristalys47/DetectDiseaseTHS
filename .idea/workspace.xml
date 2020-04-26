@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="11f265e0-6584-42bf-b3ad-f4efc0c95d69" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ths/nn/sequences/inceptionTRY.py" beforeDir="false" afterPath="$PROJECT_DIR$/ths/nn/sequences/inceptionTRY.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ths/test/TESTP.py" beforeDir="false" afterPath="$PROJECT_DIR$/ths/test/TESTP.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YcdIr6PshgeGzQkGpJU7xvNrEN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ths/test/data" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.TESTP">
+    <configuration name="TESTP" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DetectDiseaseTHS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ths/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ths/test/TESTP.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testcnnw" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DetectDiseaseTHS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ths/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ths/test/testcnnw.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testcnnwk" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DetectDiseaseTHS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ths/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ths/test/testcnnwk.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testsentences" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DetectDiseaseTHS" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ths/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ths/test/testsentences.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.TESTP" />
+        <item itemvalue="Python.testcnnw" />
+        <item itemvalue="Python.testsentences" />
+        <item itemvalue="Python.testcnnwk" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11f265e0-6584-42bf-b3ad-f4efc0c95d69" name="Default Changelist" comment="" />
+      <created>1583245739118</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583245739118</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="304" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583264458759">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="304" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1583264458759" />
+    <state x="324" y="26" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583635605176">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="324" y="26" key="#com.intellij.fileTypes.FileTypeChooser/-545.-768.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1583635605176" />
+    <state x="557" y="371" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1583302409281">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="557" y="371" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1583302409281" />
+    <state x="627" y="288" key="FileChooserDialogImpl" timestamp="1585000325371">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="627" y="288" key="FileChooserDialogImpl/0.0.1680.1050/-1920.-309.1920.1080@0.0.1680.1050" timestamp="1585000325371" />
+    <state width="1419" height="168" key="GridCell.Tab.0.bottom" timestamp="1587881061589">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="168" key="GridCell.Tab.0.bottom/-1366.-123.1366.745/0.0.1440.900@0.0.1440.900" timestamp="1587871151416" />
+    <state width="1345" height="171" key="GridCell.Tab.0.bottom/-1366.-146.1366.768/0.0.1440.900@-1366.-146.1366.768" timestamp="1587344098111" />
+    <state width="1419" height="168" key="GridCell.Tab.0.bottom/-1366.-146.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1587881061589" />
+    <state width="1419" height="245" key="GridCell.Tab.0.bottom/-545.-768.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1583639250087" />
+    <state width="1899" height="351" key="GridCell.Tab.0.bottom/0.0.1680.1050/-1920.-309.1920.1080@-1920.-309.1920.1080" timestamp="1585004426092" />
+    <state width="1659" height="351" key="GridCell.Tab.0.bottom/0.0.1680.1050/-1920.-309.1920.1080@0.0.1680.1050" timestamp="1585003229015" />
+    <state width="1659" height="351" key="GridCell.Tab.0.bottom/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1584157018193" />
+    <state width="1659" height="168" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1587865494311" />
+    <state width="1659" height="307" key="GridCell.Tab.0.bottom/0.23.1680.945@0.23.1680.945" timestamp="1587412101573" />
+    <state width="1419" height="245" key="GridCell.Tab.0.bottom/0.23.1680.948@0.23.1680.948" timestamp="1583757289967" />
+    <state width="1659" height="339" key="GridCell.Tab.0.bottom/1680.280.960.704/0.0.1680.1050@0.0.1680.1050" timestamp="1585012056855" />
+    <state width="1419" height="168" key="GridCell.Tab.0.center" timestamp="1587881061587">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="168" key="GridCell.Tab.0.center/-1366.-123.1366.745/0.0.1440.900@0.0.1440.900" timestamp="1587871151415" />
+    <state width="1345" height="171" key="GridCell.Tab.0.center/-1366.-146.1366.768/0.0.1440.900@-1366.-146.1366.768" timestamp="1587344098110" />
+    <state width="1419" height="168" key="GridCell.Tab.0.center/-1366.-146.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1587881061587" />
+    <state width="1419" height="245" key="GridCell.Tab.0.center/-545.-768.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1583639250085" />
+    <state width="1899" height="351" key="GridCell.Tab.0.center/0.0.1680.1050/-1920.-309.1920.1080@-1920.-309.1920.1080" timestamp="1585004426090" />
+    <state width="1659" height="351" key="GridCell.Tab.0.center/0.0.1680.1050/-1920.-309.1920.1080@0.0.1680.1050" timestamp="1585003229014" />
+    <state width="1659" height="351" key="GridCell.Tab.0.center/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1584157018191" />
+    <state width="1659" height="168" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1587865494310" />
+    <state width="1659" height="307" key="GridCell.Tab.0.center/0.23.1680.945@0.23.1680.945" timestamp="1587412101571" />
+    <state width="1419" height="245" key="GridCell.Tab.0.center/0.23.1680.948@0.23.1680.948" timestamp="1583757289967" />
+    <state width="1659" height="339" key="GridCell.Tab.0.center/1680.280.960.704/0.0.1680.1050@0.0.1680.1050" timestamp="1585012056853" />
+    <state width="1419" height="168" key="GridCell.Tab.0.left" timestamp="1587881061587">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="168" key="GridCell.Tab.0.left/-1366.-123.1366.745/0.0.1440.900@0.0.1440.900" timestamp="1587871151414" />
+    <state width="1345" height="171" key="GridCell.Tab.0.left/-1366.-146.1366.768/0.0.1440.900@-1366.-146.1366.768" timestamp="1587344098109" />
+    <state width="1419" height="168" key="GridCell.Tab.0.left/-1366.-146.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1587881061587" />
+    <state width="1419" height="245" key="GridCell.Tab.0.left/-545.-768.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1583639250084" />
+    <state width="1899" height="351" key="GridCell.Tab.0.left/0.0.1680.1050/-1920.-309.1920.1080@-1920.-309.1920.1080" timestamp="1585004426089" />
+    <state width="1659" height="351" key="GridCell.Tab.0.left/0.0.1680.1050/-1920.-309.1920.1080@0.0.1680.1050" timestamp="1585003229013" />
+    <state width="1659" height="351" key="GridCell.Tab.0.left/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1584157018191" />
+    <state width="1659" height="168" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1587865494309" />
+    <state width="1659" height="307" key="GridCell.Tab.0.left/0.23.1680.945@0.23.1680.945" timestamp="1587412101571" />
+    <state width="1419" height="245" key="GridCell.Tab.0.left/0.23.1680.948@0.23.1680.948" timestamp="1583757289967" />
+    <state width="1659" height="339" key="GridCell.Tab.0.left/1680.280.960.704/0.0.1680.1050@0.0.1680.1050" timestamp="1585012056853" />
+    <state width="1419" height="168" key="GridCell.Tab.0.right" timestamp="1587881061588">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="168" key="GridCell.Tab.0.right/-1366.-123.1366.745/0.0.1440.900@0.0.1440.900" timestamp="1587871151416" />
+    <state width="1345" height="171" key="GridCell.Tab.0.right/-1366.-146.1366.768/0.0.1440.900@-1366.-146.1366.768" timestamp="1587344098111" />
+    <state width="1419" height="168" key="GridCell.Tab.0.right/-1366.-146.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1587881061588" />
+    <state width="1419" height="245" key="GridCell.Tab.0.right/-545.-768.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1583639250086" />
+    <state width="1899" height="351" key="GridCell.Tab.0.right/0.0.1680.1050/-1920.-309.1920.1080@-1920.-309.1920.1080" timestamp="1585004426091" />
+    <state width="1659" height="351" key="GridCell.Tab.0.right/0.0.1680.1050/-1920.-309.1920.1080@0.0.1680.1050" timestamp="1585003229014" />
+    <state width="1659" height="351" key="GridCell.Tab.0.right/0.0.1680.1050/-1920.0.1920.1080@0.0.1680.1050" timestamp="1584157018192" />
+    <state width="1659" height="168" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1587865494311" />
+    <state width="1659" height="307" key="GridCell.Tab.0.right/0.23.1680.945@0.23.1680.945" timestamp="1587412101572" />
+    <state width="1419" height="245" key="GridCell.Tab.0.right/0.23.1680.948@0.23.1680.948" timestamp="1583757289967" />
+    <state width="1659" height="339" key="GridCell.Tab.0.right/1680.280.960.704/0.0.1680.1050@0.0.1680.1050" timestamp="1585012056854" />
+    <state width="1419" height="303" key="GridCell.Tab.1.bottom" timestamp="1587873488543">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.1.bottom/-1366.-146.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1587873488543" />
+    <state width="1419" height="303" key="GridCell.Tab.1.center" timestamp="1587873488541">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.1.center/-1366.-146.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1587873488541" />
+    <state width="1419" height="303" key="GridCell.Tab.1.left" timestamp="1587873488541">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.1.left/-1366.-146.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1587873488541" />
+    <state width="1419" height="303" key="GridCell.Tab.1.right" timestamp="1587873488542">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="303" key="GridCell.Tab.1.right/-1366.-146.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1587873488542" />
+    <state x="341" y="164" key="SettingsEditor" timestamp="1586915619294">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="341" y="164" key="SettingsEditor/-960.258.960.704/0.0.1680.1050@0.0.1680.1050" timestamp="1583268372017" />
+    <state x="341" y="164" key="SettingsEditor/0.0.1680.1050/-1920.-309.1920.1080@0.0.1680.1050" timestamp="1585000681257" />
+    <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1586915619294" />
+    <state x="310" y="192" width="745" height="708" key="find.popup" timestamp="1583641324463">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="310" y="192" width="745" height="708" key="find.popup/-545.-768.1366.768/0.0.1440.900@0.0.1440.900" timestamp="1583641324463" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ths/nn/sequences/cnn.py</url>
+          <line>278</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ths/nn/sequences/tweets.py</url>
+          <line>381</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ths/nn/sequences/tweets.py</url>
+          <line>395</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ths/test/TESTP.py</url>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ths/nn/sequences/inceptionTRY.py</url>
+          <line>199</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

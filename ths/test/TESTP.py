@@ -12,8 +12,11 @@ def main():
 
     kbk = np.array(GHJK)
 
+    np.save("array", kbk)
+    print(kbk)
     print(kbk.shape)
-
+    hello = np.load("array.npy")
+    print(hello)
 
 
 #joderme
