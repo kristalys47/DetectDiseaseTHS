@@ -49,7 +49,7 @@ class KerasInceptionCNN:
               activation='relu', dense_units=64, second_dropout=0.0):
 
         # Input Layer 1 - tweet in right order
-        sentence_input = Input(batch_shape=(10000, 75, 100), shape=(75, 100), name="INPUT_1")
+        sentence_input = Input(batch_shape=(32, 75, 100), shape=(75, 100), name="INPUT_1")
 
         in1 = Reshape((75,100,1))(sentence_input)
         input = keras.layers.Concatenate(axis=-1)([in1,in1,in1])
