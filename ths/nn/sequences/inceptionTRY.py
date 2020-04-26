@@ -49,7 +49,7 @@ class KerasInceptionCNN:
               activation='relu', dense_units=64, second_dropout=0.0):
 
         # Input Layer 1 - tweet in right order
-        sentence_input = Input(batch_shape=(32, 75, 100), shape=(75, 100), name="INPUT_1")
+        sentence_input = Input(shape=(75, 100), name="INPUT_1")
 
         in1 = Reshape((75,100,1))(sentence_input)
         input = keras.layers.Concatenate(axis=-1)([in1,in1,in1])
@@ -82,8 +82,8 @@ class KerasInceptionCNN:
     def compile(self, loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy']):
         self.model.compile(loss=loss, optimizer=optimizer, metrics=metrics)
 
-    def fit(self, X, Y, epochs = 50, batch_size = 32, shuffle=True, callbacks=None, validation_split=0.0, class_weight=None):
-        return self.model.fit(X, Y, epochs=epochs, batch_size=batch_size, shuffle=shuffle, callbacks=callbacks,
+    def fit(self, X, Y, epochs = 50, batch_size = 3, shuffle=True, callbacks=None, validation_split=0.0, class_weight=None):
+        return self.model.fit(X, Y, epochs=epochs, batch_size=batch_size, shuffle=shuffle,
                        validation_split=validation_split, class_weight=class_weight, verbose=2)
 
     def evaluate(self, X_test, Y_test):
@@ -268,8 +268,15 @@ class ProcessTweetsInception:
         print("Begin training")
         #class_weight = {0: 0.67, 1: 0.33}
         #class_weight = None
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - HERE
 
-        history = NN.fit(X_train, Y_train, epochs=epochs, batch_size=32, class_weight=class_weight_dictionary)
+        history = NN.fit(X_train, Y_train, epochs=epochs, batch_size=3, class_weight=class_weight_dictionary)
+
+
+
+
+
+
         print("Model trained")
         print("Predicting")
         print("len(X_test): ", X_test)
